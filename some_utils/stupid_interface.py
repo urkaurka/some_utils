@@ -9,11 +9,11 @@ logger = logging.getLogger(__name__)
 MODEL = "mistral:latest"
 
 
-def query(instruction: str, contenuto: str) -> str:
+def query(instruction: str, content: str) -> str:
     olly = OllamaLLM(model=MODEL)
     prompt = PromptTemplate.from_template(instruction)
     chain = prompt | olly
-    return chain.invoke({"contenuto": contenuto})
+    return chain.invoke({"content": content})
 
 
 def tab_00():
